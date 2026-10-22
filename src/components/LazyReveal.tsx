@@ -27,12 +27,14 @@ export const LazyReveal: React.FC<LazyRevealProps> = ({
       return;
     }
 
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (delayMs > 0) {
-              setTimeout(() => {
+              timeoutId = setTimeout(() => {
                 setIsVisible(true);
               }, delayMs);
             } else {
@@ -52,6 +54,7 @@ export const LazyReveal: React.FC<LazyRevealProps> = ({
 
     return () => {
       observer.disconnect();
+      if (timeoutId !== null) clearTimeout(timeoutId);
     };
   }, [threshold, rootMargin, delayMs]);
 

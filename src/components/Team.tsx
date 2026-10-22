@@ -8,13 +8,9 @@ import { TEAM_MEMBERS, TeamMember } from '../data/hypervisionData';
 import {
   Linkedin,
   Github,
-  Sparkles,
   ExternalLink,
   GraduationCap,
   ShieldCheck,
-  Award,
-  ChevronDown,
-  ChevronUp,
   Cpu,
   Layers,
   Network,
@@ -24,14 +20,11 @@ import {
   Calendar,
   Radio,
   X,
-  Compass,
   Briefcase
 } from 'lucide-react';
 import { HypervisionLogo } from './HypervisionLogo';
 
 export const Team: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'matrix' | 'wings'>('matrix');
-  const [selectedWing, setSelectedWing] = useState<string>('all');
   const [mobileFilter, setMobileFilter] = useState<'all' | 'executive' | 'tech' | 'creative' | 'ops' | 'faculty'>('all');
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
   const [hoveredBranch, setHoveredBranch] = useState<string | null>(null);
@@ -127,20 +120,6 @@ export const Team: React.FC = () => {
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
-
-  // Mobile expandable states
-  const [expandedMobile, setExpandedMobile] = useState<{ [key: string]: boolean }>({
-    faculty: true,
-    apex: true,
-    council: true,
-    tech: true,
-    creative: false,
-    ops: false
-  });
-
-  const toggleMobileTier = (key: string) => {
-    setExpandedMobile((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
 
   // Safe helper to locate team member with fallbacks
   const getMember = (name: string, fallbackRole: string, category: TeamMember['category'], department: string): TeamMember => {

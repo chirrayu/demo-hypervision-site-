@@ -26,7 +26,8 @@ export const About: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 py-16 items-start">
           <div className="lg:col-span-7 space-y-6 text-neutral-300 text-lg leading-relaxed font-light">
             <p className="text-2xl sm:text-3xl font-normal text-white tracking-tight font-display">
-              "{HYPERVISION_INFO.motto}"
+              &ldquo;{HYPERVISION_INFO.motto}&rdquo;
+
             </p>
             <p>
               Founded in 2011, Hypervision is the premier technical society of the School of Computer Science (SoCS), UPES. We connect academic learning with industry needs to foster innovation, collaboration, and career-ready technologists.

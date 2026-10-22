@@ -32,7 +32,8 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose }) => {
       return;
     }
 
-    if (!formData.email.includes('@')) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
       setErrorMsg('Please enter a valid email address.');
       return;
     }

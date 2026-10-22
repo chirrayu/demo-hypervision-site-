@@ -7,7 +7,7 @@ interface FooterProps {
   onOpenJoin?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = () => {
+export const Footer: React.FC<FooterProps> = ({ onOpenJoin: _onOpenJoin }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -31,7 +31,7 @@ export const Footer: React.FC<FooterProps> = () => {
             </div>
 
             <p className="text-xs text-neutral-400 font-light leading-relaxed max-w-md pt-2">
-              "{HYPERVISION_INFO.tagline}" A student-driven technical society translating theoretical research into sovereign engineering execution.
+              {HYPERVISION_INFO.tagline} A student-driven technical society translating theoretical research into sovereign engineering execution.
             </p>
 
             <div className="pt-2 text-xs font-mono text-neutral-400 space-y-1">
